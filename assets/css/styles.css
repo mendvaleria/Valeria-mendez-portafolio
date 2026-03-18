@@ -1,0 +1,603 @@
+/* RESET */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Helvetica, sans-serif;
+  color: black;
+  overflow: hidden;
+}
+
+/* Columns container */
+.columns {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Column behavior */
+.column {
+  flex: 1;
+  display: flex;
+  transition: flex 0.6s ease, filter 0.4s ease;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+
+h2 {
+  color: red;
+  margin-block-start: 0.10em;
+  font-size: 2em;
+  font-weight: 300;
+  line-height: 1.3;
+}
+
+.title{
+ font-weight: 500;
+ color: red;
+}
+
+.subtitle{
+  font-weight: 250;
+}
+
+.p{
+  margin-top: auto;
+  font-size: 0.5rem;
+  color: black
+}
+
+.highlight-name {
+    font-weight: 500;
+    color: red;
+}
+
+/* Test colors */
+.col-1 { background: #ffffff; }
+.col-2 { background: #047857; }
+.col-3 { background: #ffffff;; }
+.col-4 { background: #ffffff;; }
+.col-5 { background: #f6ff5b }
+.col-6 { background: #faf2f7; }
+.col-7 { background: white; }
+.col-9 { background:  #ffffff; }
+.col-10 { background: #b20d0d; }
+.col-11 { background:  black; }
+.col-12 { background: #F2F206; }
+.col-13 { background: black; }
+.col-14 { background: #ffffff; }
+.col-15 { background: #ffffff; }
+
+
+.columns:hover .column {
+  flex: 1;
+  filter: brightness(60%);
+}
+
+.columns .column:hover {
+  flex: 8;
+  filter: brightness(100%);
+  z-index: 10;
+}
+
+/* Default open column (now the last one, on the right) */
+.column.open {
+  flex: 8;
+  filter: brightness(100%);
+  z-index: 10;
+}
+
+
+/* Content block */
+.content {
+  padding: 10px;
+  max-width: 600px;
+  transition: opacity 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0.9;
+  overflow: hidden; 
+  min-height: 0
+}
+
+.column:hover .content,
+.column.open .content {
+  opacity: 1;
+  overflow-y: auto;  
+  scrollbar-width: thin; 
+}
+
+/* TYPE */
+.content p {
+  margin: 0;
+  font-size: 1rem;
+  color: black;
+  font-weight: 100;
+  
+}
+
+.content p.mail {
+  color: red;
+  font-size: 2rem;
+  margin-top: auto;        
+}
+
+.content p.mail a {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.content p.mail a:hover {
+  color: red;
+  text-decoration: underline;
+}
+
+.year-oval {
+  align-self: flex-end;     
+  margin-bottom: 0.5rem;   
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.3em 1.2em;
+  border: 1px solid black;
+  border-radius: 999px;
+  background-color: transparent;
+
+  font-size: 1rem;
+  font-weight: 100;
+  color: black;
+  line-height: 1;
+  width: fit-content;
+}
+
+.year-oval-white{
+  align-self: flex-end;     
+  margin-bottom: 0.5rem;   
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.3em 1.2em;
+  border: 1px solid white;
+  border-radius: 999px;
+  background-color: transparent;
+
+  font-size: 1rem;
+  font-weight: 100;
+  color: white;
+  line-height: 1;
+  width: fit-content;
+}
+
+
+.column.col-11,
+.column.col-11 * {
+  color: white;
+}
+
+
+.column.col-11 .year-oval {
+  border: 1px solid white;
+}
+
+
+.column.col-11 .title {
+  color: white;
+}
+
+
+.content .meta-left p.type-label {
+  display: inline-flex;
+  align-self: flex-start;
+  width: fit-content;
+  border-bottom: 1px solid red;
+  margin: 0 0 0.5rem 0;
+  color: red;
+}
+
+.meta-row {
+  display: flex;
+  justify-content: space-between;   
+  width: 100%;
+  margin-top: 1rem;  
+  margin-bottom: 1rem;               
+}
+
+.meta-left,
+.meta-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;                 
+}
+
+.meta-right {
+  text-align: right;
+  margin-top: 2rem;
+}
+
+.column.col-12 .content img {
+  border: 0.5px solid black;
+}
+
+.column.col-11 .type-label,
+.column.col-13 .type-label {
+  display: inline-flex;
+  align-self: flex-start;
+  width: fit-content;
+  border-bottom: 1px solid red;
+  margin: 0 0 0.5rem 0;
+  color: red;
+}
+
+.column.col-10 .content img,
+.column.col-10 .content video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.column.col-10 .marica-title {
+  text-align: center;    
+  width: 100%;     
+  color: red; 
+  font-weight: 500;      
+}
+
+.column.col-13 .glossary-title {    
+  color: red;      
+}
+
+
+
+.column.col-8 {
+  background-image: url("../images/bg-bit.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.column.col-8 .year-oval {
+  background: white;
+  color: black;
+  border: 1px solid black;
+}
+
+
+.column.col-8::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.30);
+  z-index: 0;
+}
+
+.column.col-8 .content {
+  position: relative;
+  z-index: 1;
+}
+
+.column.col-8 .text-panel {
+  background: rgba(255, 255, 255, 1);
+  padding: 1.5rem;
+  padding-bottom: 1rem;  
+  margin-top: 1rem;                 
+}
+
+.column.col-8 .meta-left p:last-child {
+  margin-bottom: 0;
+}
+
+.column.col-8 .section-title {
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: red;
+}
+
+.column.col-8 .meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;   
+  margin-top: 1rem;
+}
+
+.column.col-8 .meta-right p {
+  white-space: nowrap;
+}
+
+.column.open .content,
+.column:hover .content {
+  overflow-y: auto;
+}
+
+.column.col-7 img,
+.column.col-7 video,
+.column.col-7 iframe {
+  width: 100%;
+  display: block;
+}
+
+.column.col-7 .video-wrapper {
+  width: 100%;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.column.col-7 .video-wrapper {
+  display: none;
+}
+
+.column.col-7:hover .video-wrapper,
+.column.col-7.open .video-wrapper {
+  display: block;
+}
+
+.column.col-7 {
+  background-image: url("../images/bg-VR-probe.png"); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.column.col-7::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0); 
+  z-index: 0;
+}
+
+.column.col-7 .content {
+  position: relative;
+  z-index: 1;
+}
+
+.column.col-7 .year-oval {
+  background: white;
+  color: #38066e; 
+  border: 1px solid #38066e;
+}
+
+.column.col-3 .year-oval,
+.column.col-8 .year-oval,
+.column.col-9 .year-oval,
+.column.col-13 .year-oval,
+.column.col-14 .year-oval,
+.column.col-10 .year-oval {
+  background: white;
+  color: red; 
+  border: 1px solid red;
+}
+
+.column.col-7 .title-VR {    
+  color: rgb(56, 6, 110);      
+}
+
+.column.col-4 .rosario,
+.column.col-6 .rosario {  
+  font-weight: 500;  
+  color: #f945f1      
+}
+
+.column.col-4 .year-oval,
+.column.col-6 .year-oval {
+  background: white;
+  color: #f945f1;
+  border: 1px solid #f945f1;
+}
+
+.content p.type-label {
+  display: inline-block;
+  width: fit-content;
+  border-bottom: 1px solid red;
+  color: red;
+  margin: 0 0 0.5rem 0;
+}
+
+.column.col-10 {
+  background-image: url("../images/marica-left-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.column.col-11 {
+  background-image: url("../images/cementerio.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.column.col-11::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15);
+  z-index: 0;
+}
+
+.column.col-11 .content {
+  position: relative;
+  z-index: 1;
+}
+
+.column.col-14 {
+  background-image: url("../images/hoja.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.column.col-14::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.); 
+}
+
+.column.col-14 .content {
+  position: relative;
+  z-index: 1;
+}
+
+.column.col-3 {
+  background-image: url("../images/musk.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.column.col-3::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.); 
+}
+
+.column.col-3 .content {
+  position: relative;
+  z-index: 1;
+}
+
+.column.col-13 {
+  background-image: url("../images/mesa-compress.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.column.col-13::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.); 
+}
+
+.column.col-13 .content {
+  position: relative;
+  z-index: 1;
+}
+
+.column.col-6 {
+  background-image: url("../images/rosario-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.column.col-6::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.column.col-6 .content {
+  position: relative;
+  z-index: 1;
+}
+
+.column.col-4 {
+  background-image: url("../images/babe-bg-rosa.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.column.col-4::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.); 
+}
+
+.column.col-4 .content {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+
+
+
+/* Responsive */
+@media (max-width: 800px) {
+  .columns {
+    flex-direction: column;
+  }
+
+  .column {
+    height: 20vh;
+  }
+
+  .columns:hover .column {
+    height: 20vh;
+  }
+
+  .columns .column:hover,
+  .column.open {
+    height: 80vh;
+  }
+ 
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 ratio */
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+
+  
+
+
+
+
+
+
+
+
+
+}
+
